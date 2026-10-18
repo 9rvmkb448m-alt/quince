@@ -86,16 +86,16 @@ const SubmitResultsButtonEmail = (props) => {
   return (
     <PageContainer>
       <UnableText>{unableToConnectText}</UnableText>
-      {belowButtonMessage} ({emailAddress})
-      <StyledEmailButton tabindex="0" onClick={(e) => handleClick(e)}>
-        {btnTransferText}
-      </StyledEmailButton>
       <FailText2Div>{databaseFailText2}</FailText2Div>
       <CopyToClipboardButton
         type={"results"}
         content={rawData}
         text={langObj.clipboardResults}
       />
+      {belowButtonMessage}
+      <StyledEmailButton tabindex="0" onClick={(e) => handleClick(e)}>
+        {btnTransferText}
+      </StyledEmailButton>
       <FailText2Div>{databaseFailText3}</FailText2Div>
       <DownloadResultsButton onClick={(e) => handleClickDownload(e)}>
         {langObj.downloadResultsButtonText}

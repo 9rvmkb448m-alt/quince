@@ -20,11 +20,17 @@ const SubmitResultsButton = (props) => {
     ReactHtmlParser(decodeHTML(langObj.defaultEmailClientFail)) || "";
   const databaseFailText =
     ReactHtmlParser(decodeHTML(langObj.submitFailMessage)) || "";
+  const databaseFailText2 =
+    ReactHtmlParser(decodeHTML(langObj.submitFailMessage2)) || "";
+  const databaseFailText3 =
+    ReactHtmlParser(decodeHTML(langObj.submitFailMessage3)) || "";
+
+  const unableToConnectText =
+    ReactHtmlParser(decodeHTML(langObj.unableToConnect)) || "";
 
   // Local State for email button visibility
   const [belowButtonMessage, setBelowButtonMessage] =
     useState(databaseFailText);
-  const [showCopyButtons, setShowCopyButtons] = useState(false);
 
   const rawData = props.results;
   const emailAddress = configObj.emailAddress;
@@ -65,15 +71,15 @@ const SubmitResultsButton = (props) => {
     if (navigator.userAgent.toLowerCase().indexOf("chrome") > -1) {
       // Do Chrome-related actions  -  %0D%0A is a line break
       window.open(
-        `mailto:${configObj.emailAddress}?subject=${configObj.emailSubjectLine}&body=${langObj.emailBodyMessage} %0D%0A%0D%0AMy Results:%0D%0A${formattedResultsTxt}`,
+        `mailto:${configObj.emailAddress}?subject=${configObj.emailSubjectLine}`,
       );
       // setShowEmailButtons(true);
-      setShowCopyButtons(true);
+      // setShowCopyButtons(true);
     } else {
       // Do non-Chrome-related actions   -  %0D%0A is a line break
-      window.location.href = `mailto:${configObj.emailAddress}?subject=${configObj.emailSubjectLine}&body=${langObj.emailBodyMessage} %0D%0A%0D%0AMy Results:%0D%0A${formattedResultsTxt}`;
+      window.location.href = `mailto:${configObj.emailAddress}?subject=${configObj.emailSubjectLine}`;
       // setShowEmailButtons(true);
-      setShowCopyButtons(true);
+      // setShowCopyButtons(true);
     }
   };
 
@@ -84,35 +90,21 @@ const SubmitResultsButton = (props) => {
 
   return (
     <PageContainer>
-      <ContainerDiv>
-        <StyledEmailButton tabindex="0" onClick={(e) => handleClick(e)}>
-          {btnTransferText}
-        </StyledEmailButton>
-        <ContentDiv>{belowButtonMessage}</ContentDiv>
-      </ContainerDiv>
-      {showCopyButtons ? (
-        <EmailButtonDiv>
-          <ButtonContainer>
-            <CopyToClipboardButton
-              type={"email"}
-              content={emailAddress}
-              text={langObj.clipboardEmail}
-            />
-            <CopyToClipboardButton
-              type={"results"}
-              content={rawData}
-              text={langObj.clipboardResults}
-            />
-            <DownloadContainer>
-              <DownloadResultsButton onClick={(e) => handleClickDownload(e)}>
-                {langObj.downloadResultsButtonText}
-              </DownloadResultsButton>
-            </DownloadContainer>
-          </ButtonContainer>
-        </EmailButtonDiv>
-      ) : (
-        <SpacerDiv />
-      )}
+      <UnableText>{unableToConnectText}</UnableText>
+      <FailText2Div>{databaseFailText2}</FailText2Div>
+      <CopyToClipboardButton
+        type={"results"}
+        content={rawData}
+        text={langObj.clipboardResults}
+      />
+      {belowButtonMessage}
+      <StyledEmailButton tabindex="0" onClick={(e) => handleClick(e)}>
+        {btnTransferText}
+      </StyledEmailButton>
+      <FailText2Div>{databaseFailText3}</FailText2Div>
+      <DownloadResultsButton onClick={(e) => handleClickDownload(e)}>
+        {langObj.downloadResultsButtonText}
+      </DownloadResultsButton>
     </PageContainer>
   );
 };
@@ -142,12 +134,13 @@ const StyledEmailButton = styled.button`
   }
 `;
 
-const ContainerDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
+const UnableText = styled.div`
+  text-align: center;
+  width: 70%;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 `;
 
 const ContentDiv = styled.div`
@@ -161,27 +154,10 @@ const ContentDiv = styled.div`
   align-self: center;
 `;
 
-const SpacerDiv = styled.div`
-  height: 300px;
-`;
-
-const EmailButtonDiv = styled.div`
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* flex-wrap: wrap; */
+const FailText2Div = styled.div`
   margin-top: 10px;
-  height: 110px;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  width: 70%;
 `;
 
 const DownloadResultsButton = styled.button`
@@ -208,6 +184,7 @@ const DownloadResultsButton = styled.button`
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 1.4em;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
