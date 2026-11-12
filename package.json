@@ -9,6 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
+    "schema": "vite-node scripts/print-baserow-schema.mjs",
+    "settings": "node scripts/generate-settings.mjs public/settings",
     "host": "vite --host"
   },
   "dependencies": {
@@ -40,7 +42,6 @@
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^6.0.5",
-    "@vitest/browser": "^3.2.4",
     "eslint": "^9.11.1",
     "eslint-plugin-react": "^7.37.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
@@ -51,6 +52,7 @@
     "knip": "^6.32.0",
     "playwright": "^1.56.1",
     "vite": "^8.2.1",
+    "vite-node": "^6.0.0",
     "vitest": "^4.1.12"
   }
 }

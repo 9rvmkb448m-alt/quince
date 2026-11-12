@@ -100,6 +100,26 @@ from `config.xml` and set `baserowToken` and `baserowDatabaseIdNumber`. That
 puts the token in front of every participant, so it is only appropriate for a
 throwaway demo.
 
+### Building the Baserow table
+
+The app posts a flat object of field name -> value, where the names are `r1`,
+`r2`, `r3` and so on. The table needs one text column per name, matching
+exactly.
+
+```bash
+npm run schema
+```
+
+prints the full list for the current study. The tail is not fixed: the
+postsort comment slots depend on how many cards the outermost columns hold,
+and the survey fields depend on how many questionnaire items there are. Re-run
+the command after changing either.
+
+Get the token from **Baserow → Account settings → API tokens → Create API
+token**. The token is shown once, so copy it immediately. Get the table id
+from the table's URL when it is open in Baserow: the number just before
+`/view/grid` in the address bar.
+
 ## Changes from upstream
 
 Fixes and additions on top of `shawnbanasick/quince`:
