@@ -5,7 +5,7 @@
         <!-- 0. FILE INFORMATION -->
         <info order="0-1" id="languageFileVersion">1.0.9</info>
         <info order="0-2" id="iterationDate">2026-08-18</info>
-        <info order="0-3" id="studyTitle">Demo Project</info> 
+        <info order="0-3" id="studyTitle">Employee Beliefs About AI Task-Sharing in Fintech</info> 
         <info order="0-4" id="creationDate">2026-8-14@18:23</info> 
 
         <!-- 1. MULTIPLE SCREENS AND FOOTER -->
@@ -74,7 +74,7 @@
 
         <!-- 8. MOBILE PRESORT -->
         <item order= "8-1" id="mobilePresortHelpModalHead">Stage 1 of 5{{{br /}}}Statement Evaluation</item>
-        <item order= "8-2" id="mobilePresortHelpModalText">There are {{{b}}}33 statements{{{/b}}} in this survey.{{{br /}}}{{{br /}}}They are presented one by one at the top of the screen in the gray box. Tap on the appropriate button to assign a value to each statement according to your perspective. {{{br /}}}{{{br /}}} If you feel that the statement is {{{b}}}similar to your perspective{{{/b}}}, tap the green &quot;+&quot; button. {{{br/}}}{{{br/}}} {{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/evalBoxes.svg?raw=true&quot; width=&quot;200&quot;/}}}{{{/center}}}{{{br /}}}{{{br /}}}If you feel that the statement is {{{b}}}different from your perspective{{{/b}}}, tap the red &quot;-&quot; button. {{{br /}}}{{{br /}}} If you are uncertain about a statement, tap the &quot;?&quot; in the white box. {{{br /}}}{{{br /}}}If you later want to {{{b}}}change{{{/b}}} your evaluation, tap the {{{b}}}redo icon{{{/b}}} next to the statement.{{{br/}}}{{{br/}}} {{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/redoBox.svg?raw=true&quot; / width=&quot;200&quot; /}}}{{{/center}}}{{{br/}}}{{{br /}}}You can adjust the size of the text and view area by using the buttons at the bottom of the page. {{{br/}}}{{{center}}}{{{br /}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/adjText.svg?raw=true&quot; width=&quot;150&quot;/}}}{{{/center}}} {{{br/}}}{{{br/}}} {{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/adjView.svg?raw=true&quot; width=&quot;150&quot;/}}}{{{/center}}}{{{br /}}}If you want to see these instructions again, tap the &quot;?&quot; button at the top of the main page.{{{br /}}}{{{br /}}}{{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/helpSymbol.png?raw=true&quot; width=&quot;30&quot;/}}}</item>
+        <item order= "8-2" id="mobilePresortHelpModalText">There are {{{b}}}60 statements{{{/b}}} in this survey.{{{br /}}}{{{br /}}}They are presented one by one at the top of the screen in the gray box. Tap on the appropriate button to assign a value to each statement according to your perspective. {{{br /}}}{{{br /}}} If you feel that the statement is {{{b}}}similar to your perspective{{{/b}}}, tap the green &quot;+&quot; button. {{{br/}}}{{{br/}}} {{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/evalBoxes.svg?raw=true&quot; width=&quot;200&quot;/}}}{{{/center}}}{{{br /}}}{{{br /}}}If you feel that the statement is {{{b}}}different from your perspective{{{/b}}}, tap the red &quot;-&quot; button. {{{br /}}}{{{br /}}} If you are uncertain about a statement, tap the &quot;?&quot; in the white box. {{{br /}}}{{{br /}}}If you later want to {{{b}}}change{{{/b}}} your evaluation, tap the {{{b}}}redo icon{{{/b}}} next to the statement.{{{br/}}}{{{br/}}} {{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/redoBox.svg?raw=true&quot; / width=&quot;200&quot; /}}}{{{/center}}}{{{br/}}}{{{br /}}}You can adjust the size of the text and view area by using the buttons at the bottom of the page. {{{br/}}}{{{center}}}{{{br /}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/adjText.svg?raw=true&quot; width=&quot;150&quot;/}}}{{{/center}}} {{{br/}}}{{{br/}}} {{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/adjView.svg?raw=true&quot; width=&quot;150&quot;/}}}{{{/center}}}{{{br /}}}If you want to see these instructions again, tap the &quot;?&quot; button at the top of the main page.{{{br /}}}{{{br /}}}{{{center}}}{{{img src=&quot;https://github.com/shawnbanasick/quince/blob/development/src/assets/helpSymbol.png?raw=true&quot; width=&quot;30&quot;/}}}</item>
         <item order= "8-3" id="mobilePresortConditionsOfInstruction">Evaluate the Statements According to Your Experience of using the iPads in the Class</item>
         <item order= "8-4" id="mobilePresortCompletedLabel">Completed Evaluations</item>
         <item order= "8-5" id="mobilePresortAssignLeft">Different from My Perspective</item>
@@ -133,7 +133,7 @@
         <item order="11-2" id="sortHelpModalText">In this step, please click and drag the statement cards to the appropriate column based on your perspective and the researcher&apos;s instructions at the top of the page. {{{br/}}}{{{br/}}}To change the position of a statement, click and drag it to the preferred column.{{{br/}}}{{{br/}}}The number of statements for each column is limited. If a column background color changes to orange, too many statements are in that column. Please move statements to one of the neighboring columns until the column color returns to normal. {{{br/}}}{{{br/}}}You can adjust the statements&apos; text size and the size of the statement boxes by clicking on the &quot;+&quot; and &quot;-&quot; buttons on the bottom of the page.</item>
         <item order="11-3"  id="sortAgreement">Agree</item>
         <item order="11-4" id="sortDisagreement">Disagree</item>
-        <item order="11-5" id="condOfInst">Sort the cards according to your experience with the iPads this semester</item>
+        <item order="11-5" id="condOfInst">Sort the cards according to your own experience of AI in the fintech workplace, from &apos;most like my view&apos; to &apos;least like my view&apos;</item>
         <item order="11-6" id="sortOverloadedColumnModalHead">Navigation Disabled</item>
         <item order="11-7" id="sortOverloadedColumnModalText">One of the columns has too many statements (it will be outlined in orange and have a dashed border). Please adjust the placement of the statements so that all columns have the correct number.</item>
 
@@ -206,7 +206,7 @@
         <item order="19-7" id="btnTransferEmail">2. Open Email Client</item>
         <item order="19-8" id="submitFailMessage3">After sending the email, please also download your results to your computer as a backup.</item>  
         <item order="19-9" id="downloadResultsButtonText">3. Download Results</item>  
-        <item order="19-10" id="emailSubjectText">Quince Q-sort results</item>
+        <item order="19-10" id="emailSubjectText">Q-sort results: Employee Beliefs About AI Task-Sharing in Fintech</item>
 
         <!-- 20. LINKING -->
         <item order="20-1" id="linkedProjectMessage">Please click the button to begin the next Q sort</item>   

@@ -85,7 +85,10 @@ const processConfigXMLData = (dataObject) => {
         case "information":
           return {
             ...base,
-            background: elAttr(mainEl, "bg"),
+            // the "bg" attribute lives on the <note> element (second child),
+            // not on the <input> element that carries the type
+            background:
+              elAttr(questionElements[1], "bg") || elAttr(mainEl, "bg"),
             options: elText(questionElements[1]),
           };
 
@@ -95,7 +98,7 @@ const processConfigXMLData = (dataObject) => {
             required: isRequired,
             label: elText(questionElements[1]),
             note: elText(questionElements[2]),
-            limitLength: elAttr(mainEl, "limitLength", "999"),
+            limitLength: +elAttr(mainEl, "limitLength", "999"),
             restricted: elAttr(mainEl, "restricted", "false"),
             limited: elAttr(mainEl, "limited", "false"),
             placeholder: elText(questionElements[3]),

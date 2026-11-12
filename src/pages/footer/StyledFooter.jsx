@@ -44,11 +44,20 @@ const StyledFooter = () => {
     showBackButton = false;
   }
 
-  let logoHtml = ReactHtmlParser(
-    decodeHTML(
-      `{{{center}}}{{{img src="./logo/logo.png" height="40" width="250" /}}}{{{/center}}}`,
-    ),
-  );
+  // The footer logo can be turned off with `showFooterLogo` in config.xml,
+  // or pointed at a different image with `footerLogoPath`.
+  const showFooterLogo =
+    configObj.showFooterLogo !== false && configObj.showFooterLogo !== "false";
+  const footerLogoPath =
+    configObj.footerLogoPath || `${import.meta.env.BASE_URL}logo/logo.png`;
+
+  let logoHtml = showFooterLogo
+    ? ReactHtmlParser(
+        decodeHTML(
+          `{{{center}}}{{{img src="${footerLogoPath}" height="40" width="250" /}}}{{{/center}}}`,
+        ),
+      )
+    : "";
 
   let nextButtonText;
   if (currentPage === "landing") {

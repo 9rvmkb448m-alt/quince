@@ -32,7 +32,7 @@ const PresortPage = () => {
   const configObj = useSettingsStore(getConfigObj);
   const statementsObj = useSettingsStore(getStatementsObj);
   let cardFontSize = useStore(getCardFontSizePresort);
-  const isLoggedIn = useSettingsStore(getIsLoggedIn);
+  const isLoggedIn = useStore(getIsLoggedIn);
   const setCurrentPage = useStore(getSetCurrentPage);
   const setProgressScore = useStore(getSetProgressScore);
   const presortNoReturn = useStore(getPresortNoReturn);

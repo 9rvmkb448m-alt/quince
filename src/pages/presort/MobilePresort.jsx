@@ -60,7 +60,7 @@ const MobilePresortPage = () => {
   const configObj = useSettingsStore(getConfigObj);
   const mapObj = useSettingsStore(getMapObj);
   const statementsObj = useSettingsStore(getStatementsObj);
-  const isLoggedIn = useSettingsStore(getIsLoggedIn);
+  const isLoggedIn = useStore(getIsLoggedIn);
   const setCurrentPage = useStore(getSetCurrentPage);
   const setProgressScore = useStore(getSetProgressScore);
   const resetColumnStatements = useSettingsStore(getResetColumnStatements);

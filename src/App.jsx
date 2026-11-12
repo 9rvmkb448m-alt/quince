@@ -68,6 +68,10 @@ function App() {
   const [loadError, setLoadError] = useState(null);
   const [outOfDateFiles, setOutOfDateFiles] = useState([]);
 
+  // Settings live next to the bundle. Resolve them against Vite's base
+  // path so the app works when it is served from a sub-directory.
+  const settingsUrl = (name) => `${import.meta.env.BASE_URL}settings/${name}`;
+
   // small helper so each fetch reports which file failed
   const fetchXml = async (path) => {
     try {
@@ -85,9 +89,9 @@ function App() {
       try {
         // language, config, and map don't depend on each other — fetch in parallel
         const [languageXml, configXml, mapXml] = await Promise.all([
-          fetchXml("./settings/language.xml"),
-          fetchXml("./settings/config.xml"),
-          fetchXml("./settings/map.xml"),
+          fetchXml(settingsUrl("language.xml")),
+          fetchXml(settingsUrl("config.xml")),
+          fetchXml(settingsUrl("map.xml")),
         ]);
 
         // --- language ---
@@ -156,7 +160,7 @@ function App() {
         setMapObj(mapObj);
 
         // --- statements (depends on shuffleCards + vColsObj, so fetch after) ---
-        const statementsXml = await fetchXml("./settings/statements.xml");
+        const statementsXml = await fetchXml(settingsUrl("statements.xml"));
         const statementsOptions = {
           compact: true,
           ignoreComment: true,

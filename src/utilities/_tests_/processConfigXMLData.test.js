@@ -26,7 +26,7 @@ describe("processConfigXMLData", () => {
   it("should extract the file version correctly", () => {
     const input = mockBaseData([]);
     const result = processConfigXMLData(input);
-    expect(result.configObj.mapFileVersion).toBe("1.0");
+    expect(result.configObj.configFileVersion).toBe("1.0");
   });
 
   it('should convert "true"/"false" strings to booleans and numeric strings to numbers', () => {

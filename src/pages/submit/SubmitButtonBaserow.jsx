@@ -9,6 +9,7 @@ import useStore from "../../globalState/useStore";
 import PromptUnload from "../../utilities/PromptUnload";
 import axios from "axios";
 import SubmitButtonEmail from "./SubmitButtonEmail";
+import getSubmitRequest from "../../utilities/getSubmitRequest";
 
 const getLangObj = (state) => state.langObj;
 const getTransmittingData = (state) => state.transmittingData;
@@ -55,22 +56,21 @@ const SubmitResultsButtonBaserow = (props) => {
 
     console.log(JSON.stringify(props.results, null, 2));
 
-    let token = configObj.baserowToken;
-    let databaseId = configObj.baserowDatabaseIdNumber;
+    const request = getSubmitRequest(configObj, props.results);
 
-    if (token === undefined || token === null) {
-      console.log("Baserow token is not set");
+    if (request === null) {
+      clearTimeout(timeoutId);
+      setTransmittingData(false);
+      setCheckInternetConnection(true);
+      setDisplayBelowButtonText(false);
       return;
     }
 
     axios({
       method: "POST",
-      url: `https://api.baserow.io/api/database/rows/table/${databaseId}/?user_field_names=true`,
-      headers: {
-        Authorization: `Token ${token}`,
-        "Content-Type": "application/json",
-      },
-      data: props.results,
+      url: request.url,
+      headers: request.headers,
+      data: request.data,
     })
       .then((response) => {
         console.log(response);

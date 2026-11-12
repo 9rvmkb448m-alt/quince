@@ -3,64 +3,67 @@
    <config version="1.0.9" htmlParse="false">
 
    <!-- HIDDEN OPTIONS - DO NOT DELETE OR CHANGE -->
-   <item id="devMode">false</item> 
-   <item id="traceSorts">true</item> 
+   <item id="devMode">false</item>
+   <item id="traceSorts">true</item>
    <item id="thinGuidanceModalMaxIterations">2</item>
    <item id="setDefaultFontSize">true</item>
    <item id="setDefaultFontSizePresort">true</item>
    <item id="setDefaultFontSizeSort">true</item>
    <item id="setDefaultFontSizePostsort">true</item>
    <item id="setMinCardHeightPostsort">true</item>
-   <item id="useThinProcess">true</item> 
-   <item id="useMobileMode">true</item> 
-   <item id="emailSubjectLine">Quince Sort Results</item>  
+   <item id="useThinProcess">true</item>
+   <item id="useMobileMode">true</item>
+   <item id="emailSubjectLine">Q-sort results: Employee Beliefs About AI Task-Sharing in Fintech</item>
    <item id="setupTarget">baserow</item>
    <item id="greenCardColor">#E1E1E1</item>
    <item id="yellowCardColor">#E1E1E1</item>
    <item id="pinkCardColor">#E1E1E1</item>
-   <item id="sortDirection">positive</item> 
+   <item id="sortDirection">positive</item>
 
    <!-- 0. FILE INFORMATION -->
    <info order="0-a" id="configFileVersion">1.0.9</info>
-   <info order="0-b" id="iterationDate">2026-08-18</info>
-   <info order="1--" id="creationDate">2026-8-14@18:24</info> 
+   <info order="0-b" id="iterationDate">2026-11-12</info>
+   <info order="1--" id="creationDate">2026-11-12@04:49:39</info>
 
    <!-- 1. STUDY TITLE -->
-   <item order="1-a" id="studyTitle">Demo Project</item> 
+   <item order="1-a" id="studyTitle">Employee Beliefs About AI Task-Sharing in Fintech</item>
 
    <!-- 2. DATABASE SETUP -->
    <!-- "setupTarget" options: baserow or local -->
-   <item order="2-a" id="baserowToken">9mai4vZoWKfizfMebLLwHYXXg2FvBgzt</item>
-   <item order="2-b" id="baserowDatabaseIdNumber">542139</item>
-   <item order="2-c" id="emailAddress">ken.q.tools@gmail.com</item>
+   <!-- Submissions are POSTed to submitApiUrl, a route on this site that
+        proxies to Baserow using a server-side token. No token is shipped
+        to the browser. -->
+   <item order="2-a" id="submitApiUrl">/api/qsort-submit</item>
+   <item order="2-b" id="emailAddress">drkkhan78@gmail.com</item>
 
    <!-- 3. PREVENT MOBILE ACCESS -->
    <item order="3-a" id="preventMobileAccess">false</item>
 
    <!-- 4. SECOND PROJECT LINKING -->
-   <item order="4-a" id="linkToSecondProject">false</item> 
-   <item order="4-b" id="secondProjectUrl"></item> 
+   <item order="4-a" id="linkToSecondProject">false</item>
+   <item order="4-b" id="secondProjectUrl"></item>
 
-   <!-- 5. STATEMENT OR IMAGE SORT  (imageFormat: 169 or 43)-->
+   <!-- 5. STATEMENT OR IMAGE SORT -->
    <item order="5-a" id="useImages">false</item>
-   <item order="5-b" id="numImages">30</item>
+   <item order="5-b" id="numImages">60</item>
    <item order="5-c" id="imageFileType">jpg</item>
    <item order="5-d" id="imageFormat">postSortImageModal169</item>
 
    <!-- 6. CONSENT PAGE OPTIONS -->
    <item order="6-a" id="showConsentPage">true</item>
    <item order="6-b" id="showConsentPageHelpModal">true</item>
-   
+
    <!-- 7. PROJECT ACCESS OPTIONS -->
    <!-- options: anonymous, partId-access, partId, access -->
-   <item order="7-a" id="initialScreen">anonymous</item>
-   <item order="7-b" id="accessCode">demo</item>
-   
-   <!-- 8. COLOR SETTINGS  -->
-   <!-- defaults = #2a2a2a (font), #ccffcc (right), #e0e0e0 (center), #ffe0f0 (left) -->
+   <item order="7-a" id="initialScreen">partId</item>
+   <item order="7-b" id="accessCode">fintech2026</item>
+
+   <!-- 8. COLOR SETTINGS -->
    <item order="8-a" id="headerBarColor">#337ab7</item>
    <item order="8-b" id="defaultFontColor">#2a2a2a</item>
-   
+   <item order="8-c" id="showFooterLogo">false</item>
+   <item order="8-d" id="footerLogoPath">./logo/logo.png</item>
+
    <!-- 9. PRESORT OPTIONS -->
    <item order="9-a" id="shuffleCards">true</item>
    <item order="9-b" id="defaultFontSizePresort">22</item>
@@ -83,63 +86,48 @@
    <item order="10-h" id="defaultFontSizePostsort">16</item>
    <item order="10-i" id="minCardHeightPostsort">120</item>
 
-   <!-- 12. SURVEY - Survey Questions -->
+   <!-- 12. SURVEY -->
    <item order="12-a" id="showSurvey">true</item>
 
    <item id="survey">
        <input type="information"></input>
-       <note bg="goldenrod">All fields marked with an * are {{{b}}}required.{{{/b}}}</note>
+        <note bg="goldenrod">About this questionnaire</note>
    </item>
 
    <item id="survey">
-        <input type="text" required="false" limited="false" limitLength="99999" restricted="false"></input>
-        <label>1. Have you had classes with me before?</label>
-        <note>If yes, please {{{i}}}list them here{{{/i}}}. (limit = 100 characters)</note>
+       <input type="text" required="true" limited="true" limitLength="100"></input>
+        <label>1. How many years of work experience do you have in fintech?*</label>
+        <note>Enter a number of years.</note>
    </item>
 
    <item id="survey">
-        <input type="textarea" required="false"></input>
-        <label>2. Describe your experience using the iPads in this class</label>
-        <note></note>
-        <placeholder>input comment here</placeholder>
-   </item>
-
-   <item id="survey">
-        <input type="radio" required="false" other="true">Freshman;;;Sophomore;;;Junior;;;Senior;;;Other (Please specify below)</input>
-        <label>3. Year</label>
-        <note>Please select your year</note>
-   </item>
-
-   <item id="survey">
-        <input type="select" required="false">Global Studies;;;Linguistics;;;English Literature</input>
-        <label>4. What is your program focus?</label>
+       <input type="select" required="false">Individual contributor;;;Team lead / supervisor;;;Middle management;;;Senior management;;;Other</input>
+        <label>2. What is your current role?</label>
         <note></note>
    </item>
 
    <item id="survey">
-        <input type="checkbox" required="true" other="true">Lecture;;;Group Discussion;;;Active Learning;;;Other (Please specify below)</input>
-        <label>5. What kind of class do you prefer?*</label>
+       <input type="radio" required="false">None;;;Some - I have used AI tools occasionally;;;Moderate - I use AI tools regularly;;;Extensive - AI is a core part of my role</input>
+        <label>3. How much direct experience do you have working with AI tools?</label>
         <note></note>
    </item>
 
    <item id="survey">
-        <input type="rating2" required="false" scale="Yes;;;No">I have used an iPad in class before.;;; I have used a notebook computer in class before.;;;I have used Moodle before.;;;I have used Quizlet before;;;</input>
-        <label>6. Please respond to {{{mark}}}all{{{/mark}}} of the following statements</label>
+       <input type="checkbox" required="false" other="true">Customer service;;;Fraud detection;;;Risk assessment;;;Data analysis;;;Document processing;;;Software development;;;None of these</input>
+        <label>4. Which areas of your work have been affected by AI so far?</label>
         <note></note>
    </item>
 
    <item id="survey">
-        <input type="rating7" required="true" scale="1;;;2;;;3;;;4;;;5;;;6;;;7">How would you rate the use of iPads in this class?;;;How would you rate this class overall?;;;How was your interaction with {{{u}}}other students?{{{/u}}};;;How was access to the computer lab?</input>
-        <label>7. {{{i}}}Please{{{/i}}} answer the following questions</label>
-        <note></note>
+       <input type="rating7" required="false" scale="1;;;2;;;3;;;4;;;5;;;6;;;7"></input>
+        <label>5. How do you feel about the pace of AI adoption in your organisation?</label>
+        <note>1 = far too slow, 7 = far too fast</note>
    </item>
 
    <item id="survey">
-        <input type="rating10" required="false" scale="1;;;2;;;3;;;4;;;5;;;6;;;7;;;8;;;9;;;10">How would you rate the use of the {{{b}}}Socrative{{{/b}}} website in this class?;;;How would you rate the use of the {{{b}}}Quizlet{{{/b}}} website in this class?;;;How would you rate the use of Moodle in this class?;;;How would you rate the use of Edmodo in this class?;;;</input>
-        <label>8. {{{u}}}Please answer all of the following questions{{{/u}}}</label>
+       <input type="textarea" required="false"></input>
+        <label>6. Is there anything else you would like the researcher to know?</label>
         <note></note>
    </item>
 
-
-       
-  </config>
+   </config>

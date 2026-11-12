@@ -9,6 +9,7 @@ import useStore from "../../globalState/useStore";
 import PromptUnload from "../../utilities/PromptUnload";
 import axios from "axios";
 import MobileSubmitButtonEmail from "./MobileSubmitButtonEmail";
+import getSubmitRequest from "../../utilities/getSubmitRequest";
 
 const getLangObj = (state) => state.langObj;
 const getTransmittingData = (state) => state.transmittingData;
@@ -78,32 +79,29 @@ const SubmitResultsButton = (props) => {
       setDisplayBelowButtonText(false);
     }, 10000);
 
-    let token = configObj.baserowToken;
-    let databaseId = configObj.baserowDatabaseIdNumber;
+    // Track the timer on the ref as well so the unmount cleanup can cancel
+    // it, and so a successful submission can clear it.
+    connectionTimeoutRef.current = timeoutId;
 
-    if (token === undefined || token === null) {
-      console.log("Baserow token is not set");
-      // setButtonDisabled(false);
-      return;
-    }
+    const request = getSubmitRequest(configObj, props.results);
 
-    if (databaseId === undefined || databaseId === null) {
-      console.log("Baserow database id is not set");
-      // setButtonDisabled(false);
+    if (request === null) {
+      clearTimeout(timeoutId);
+      setTransmittingData(false);
+      setCheckInternetConnection(true);
+      setDisplayBelowButtonText(false);
       return;
     }
 
     axios({
       method: "POST",
-      url: `https://api.baserow.io/api/database/rows/table/${databaseId}/?user_field_names=true`,
-      headers: {
-        Authorization: `Token ${token}`,
-        "Content-Type": "application/json",
-      },
-      data: props.results,
+      url: request.url,
+      headers: request.headers,
+      data: request.data,
     })
       .then(() => {
-        clearTimeout(connectionTimeoutRef.current);
+        clearTimeout(timeoutId);
+        connectionTimeoutRef.current = null;
         setTransmittingData(false);
         setCheckInternetConnection(false);
         setDisplayGoodbyeMessage(true);

@@ -1,45 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-   <statements version="1.0.9" htmlParse="false">;
+   <statements version="1.0.9" htmlParse="false">
 
     <!-- 0. FILE INFORMATION -->
     <info order="0-1" id="statementsFileVersion">1.0.9</info>
-    <info order="0-2" id="iterationDate">2026-08-18</info>
-    <info order="0-3" id="studyTitle">Demo Project</info> 
-    <info order="0-4" id="creationDate">2026-8-14@18:22</info> 
+    <info order="0-2" id="iterationDate">2026-11-12</info>
+    <info order="0-3" id="studyTitle">Employee Beliefs About AI Task-Sharing in Fintech</info>
+    <info order="0-4" id="creationDate">2026-11-12@04:49:39</info>
 
     <!-- 1. STATEMENTS -->
-     <statement id="1">1. I think the iPads helped to make a good learning environment for this class</statement>
-     <statement id="2">2. I learned concepts more easily in this class because we used iPads during the class</statement>
-     <statement id="3">3. I learned more from my classmates in this class than in my other classes because of the iPads</statement>
-     <statement id="4">4. The iPad helped me to learn things in this class that I would not have learned otherwise</statement>
-     <statement id="5">5. Using the iPad made it easier for me to make connections between the concepts used in the class</statement>
-     <statement id="6">6. Using iPads matches well with my preferred method of learning</statement>
-     <statement id="7">7. I feel using the iPads motivated me to work harder in this class</statement>
-     <statement id="8">8. I think that the iPad skills that I learned in this class will help me in other classes</statement>
-     <statement id="9">9. Using the iPad helped me to focus on the class concepts</statement>
-     <statement id="10">10. Using the iPad helped me to remember concepts from previous class sessions</statement>
-     <statement id="11">11. I participated more in this class than my other classes because of the iPads</statement>
-     <statement id="12">12. Using the iPads with Socrative made it easier for me to express my opinions on the course concepts</statement>
-     <statement id="13">13. It was interesting to use the iPads and Socrative to see the opinions of other students</statement>
-     <statement id="14">14. Using the iPads to give feedback on student presentations made them more interesting</statement>
-     <statement id="15">15. The Kahoot quizzes using iPads helped me to learn the course concepts</statement>
-     <statement id="16">16. Using the iPads in class made it more difficult for me to speak in English during class</statement>
-     <statement id="17">17. I wanted to use the iPad to access social media applications (LINE or Facebook) during class</statement>
-     <statement id="18">18. Using the iPads in this class wasted valuable class time</statement>
-     <statement id="19">19. It was difficult for me to understand how to use the iPad apps for this class</statement>
-     <statement id="20">20. Using the iPad in this class made the course concepts more confusing</statement>
-     <statement id="21">21. It was difficult to communicate my ideas using the iPad</statement>
-     <statement id="22">22. The iPad-related material was not well integrated with the other class material</statement>
-     <statement id="23">23. Having my opinions displayed in the screen in front of the class made me more reluctant to express my opinions</statement>
-     <statement id="24">24. I became bored while using the iPad during class</statement>
-     <statement id="25">25. I felt uncomfortable when using the iPad because I am not as skilled with technology as other students seem to be</statement>
-     <statement id="26">26. The iPad made it more difficult for me to concentrate on the course concepts</statement>
-     <statement id="27">27. Using the iPad made it more difficult to speak in English with the Professor</statement>
-     <statement id="28">28. Using the iPad made it more difficult to speak in English with other students</statement>
-     <statement id="29">29. I lost some confidence in my ability to speak English during class because of the use of iPads</statement>
-     <statement id="30">30. Using iPads during class was inconvenient</statement>
-     <statement id="31">31. Use of the iPads didn’t improve the learning environment</statement>
-     <statement id="32">32. I feel more comfortable using technology after taking this class</statement>
-     <statement id="33">33. I wish more of my classes would use iPads</statement>
+     <statement id="1">If I let AI take over my core tasks, I am essentially training my own replacement.</statement>
+     <statement id="2">AI is a tool to help me work faster, not a threat to my employment.</statement>
+     <statement id="3">Every task AI learns is one step closer to making my role redundant.</statement>
+     <statement id="4">I believe my job will still exist in five years, regardless of how much AI we use.</statement>
+     <statement id="5">AI will eventually take the “human” out of my job title.</statement>
+     <statement id="6">The tasks AI is best at are the ones I’m most happy to get rid of.</statement>
+     <statement id="7">My company has a moral obligation to protect my job from being automated.</statement>
+     <statement id="8">If I help implement AI, I expect the company to reward me with a more stable role.</statement>
+     <statement id="9">I feel like the “deal” I made when I joined this company is changing because of AI.</statement>
+     <statement id="10">It feels unfair for the company to benefit from AI while employees worry about their future.</statement>
+     <statement id="11">I trust my leaders to prioritize people over algorithms when making decisions.</statement>
+     <statement id="12">If my role changes because of AI, I expect my employer to provide the training I need.</statement>
+     <statement id="13">The tasks I do are what make me a professional; if AI does them, I lose my identity.</statement>
+     <statement id="14">My value to this company comes from my judgment, which AI cannot replicate.</statement>
+     <statement id="15">I take pride in the specific tasks I perform every day.</statement>
+     <statement id="16">I don’t mind who does the work as long as the results are accurate.</statement>
+     <statement id="17">Automating my most difficult tasks would make me feel less important to the team.</statement>
+     <statement id="18">AI handles the “boring” stuff, allowing me to focus on the work that actually matters.</statement>
+     <statement id="19">I trust AI to handle data-heavy tasks more accurately than any human could.</statement>
+     <statement id="20">AI often misses the “big picture” that a human instinctively understands.</statement>
+     <statement id="21">I feel comfortable letting AI handle high-stakes financial calculations without a double-check.</statement>
+     <statement id="22">AI is smart, but it lacks the common sense needed for my specific job.</statement>
+     <statement id="23">I would rather trust a colleague’s intuition than an AI’s prediction.</statement>
+     <statement id="24">AI performs well in theory, but I’m skeptical about it working in our real-world office.</statement>
+     <statement id="25">I must have the final “go or no-go” decision on any task AI works on.</statement>
+     <statement id="26">I am happy to let AI work in the background as long as I can see what it’s doing.</statement>
+     <statement id="27">Using AI makes me feel like I am losing control over how I do my work.</statement>
+     <statement id="28">AI should be an assistant I direct, not a system that tells me what to do.</statement>
+     <statement id="29">I am okay with AI making small decisions without my involvement.</statement>
+     <statement id="30">I feel a loss of freedom when I have to follow a process dictated by an algorithm.</statement>
+     <statement id="31">I feel more loyal to companies that limit their use of AI in favor of human staff.</statement>
+     <statement id="32">My employer sees me as an asset to be developed, not a cost to be automated.</statement>
+     <statement id="33">AI deployment feels like it’s designed to benefit the company’s bottom line, not the staff.</statement>
+     <statement id="34">I feel safe sharing my “tricks of the trade” with the AI development team.</statement>
+     <statement id="35">The way my company is introducing AI makes me feel respected and included.</statement>
+     <statement id="36">I worry that AI will be used to monitor my performance too closely.</statement>
+     <statement id="37">Unloading my routine tasks to AI will make my workday much more interesting.</statement>
+     <statement id="38">I worry that if AI takes the easy tasks, the remaining work will be too intense.</statement>
+     <statement id="39">AI will give me the time I need to build better relationships with our clients.</statement>
+     <statement id="40">I don’t see AI as “liberating” me; I see it as making me work harder.</statement>
+     <statement id="41">Being “freed up” by AI just sounds like a nice way of saying I’ll have less to do.</statement>
+     <statement id="42">This technology is an opportunity for me to learn new, more valuable skills.</statement>
+     <statement id="43">If AI makes a mistake on my watch, I feel like I’m the one who will get blamed.</statement>
+     <statement id="44">I worry that AI will make decisions that are biased or unfair to our customers.</statement>
+     <statement id="45">In fintech, the risks are too high to let AI work without constant human supervision.</statement>
+     <statement id="46">AI helps reduce human errors, which makes the whole company safer.</statement>
+     <statement id="47">I feel responsible for the output of the AI, even if I didn’t personally create it.</statement>
+     <statement id="48">Working with AI makes it harder to explain to a customer “why” a decision was made.</statement>
+     <statement id="49">The skills I’ve spent years developing are becoming less relevant because of AI.</statement>
+     <statement id="50">Learning to work alongside AI is the most important skill for my future career.</statement>
+     <statement id="51">I worry that AI will handle the “entry-level” tasks, making it harder for juniors to learn.</statement>
+     <statement id="52">My “human-only” skills (like empathy) are now more valuable than ever before.</statement>
+     <statement id="53">I feel behind my peers if I’m not using the latest AI tools in my daily work.</statement>
+     <statement id="54">I am confident I can adapt to any changes AI brings to my task list.</statement>
+     <statement id="55">I actively look for new ways to use AI to make my job easier.</statement>
+     <statement id="56">I prefer to stick to the traditional ways of doing my tasks.</statement>
+     <statement id="57">I only use AI tools because the company requires me to.</statement>
+     <statement id="58">I feel excited about the future of Human-AI teaming in my department.</statement>
+     <statement id="59">I find myself “double-checking” everything the AI does, which takes up more time.</statement>
+     <statement id="60">I believe my colleagues and I can work together with AI as a cohesive team.</statement>
    </statements>

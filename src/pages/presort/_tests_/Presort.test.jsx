@@ -90,7 +90,6 @@ describe("PresortPage", () => {
         langObj: config.langObj,
         configObj: config.configObj,
         statementsObj: config.statementsObj,
-        isLoggedIn: config.isLoggedIn,
         resetColumnStatements: config.resetColumnStatements,
       };
       return selector(state);
@@ -103,6 +102,7 @@ describe("PresortPage", () => {
         setProgressScore: mockSetProgressScore,
         presortNoReturn: config.presortNoReturn,
         setDisplayNextButton: mockSetDisplayNextButton,
+        isLoggedIn: config.isLoggedIn,
       };
       return selector(state);
     });

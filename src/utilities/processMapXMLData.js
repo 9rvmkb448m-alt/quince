@@ -56,10 +56,6 @@ const processMapXMLData = (dataObject) => {
       'processMapXMLData: no <item id="qSortPattern"> element found in map.xml',
     );
   }
-  const qSortPatternText = getText(qSortPatternObject);
-  mapObj.qSortPattern = qSortPatternText
-    ? qSortPatternText.split(",").map((x) => +x)
-    : [];
 
   for (let j = 0; j < items.length; j++) {
     const itemEl = items[j];
@@ -75,6 +71,14 @@ const processMapXMLData = (dataObject) => {
 
     mapObj[key] = value.includes(",") ? value.split(",") : [value];
   }
+
+  // qSortPattern holds per-column card counts, so keep it numeric. This has
+  // to run *after* the loop above, which would otherwise overwrite it with
+  // an array of strings.
+  const qSortPatternText = getText(qSortPatternObject);
+  mapObj.qSortPattern = qSortPatternText
+    ? qSortPatternText.split(",").map((x) => +x)
+    : [];
 
   // create converter object for postsort
   const postsortConvertObj = {};
