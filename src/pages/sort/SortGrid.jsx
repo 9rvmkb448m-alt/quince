@@ -62,8 +62,16 @@ const SortGrid = (props) => {
     localStorage.getItem("columnStatements"),
   );
 
-  if (presortColumnStatements === null) {
-    presortColumnStatements = [];
+  // The sort grid expects an object with `vCols` and `statementList`. The
+  // value is normally written by the thinning step, but it is missing when
+  // the page is opened directly or when the refinement step is skipped, so
+  // fall back to an empty grid rather than crashing on `undefined.vCols`.
+  if (
+    !presortColumnStatements ||
+    typeof presortColumnStatements !== "object" ||
+    !presortColumnStatements.vCols
+  ) {
+    presortColumnStatements = { vCols: {}, statementList: [] };
   }
   // LOCAL STATE
 
@@ -208,7 +216,7 @@ const SortGrid = (props) => {
         minHeight={qSortPattern[index] * (+cardHeight + 8)}
         maxCards={qSortPattern[index]}
         columnId={columnId}
-        columnStatementsArray={columnStatements.vCols[columnId]}
+        columnStatementsArray={columnStatements.vCols[columnId] || []}
         forcedSorts={configObj.warnOverloadedColumn}
         columnWidth={props.columnWidth}
         cardHeight={+cardHeight}

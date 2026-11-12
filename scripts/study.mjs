@@ -62,6 +62,33 @@ export const study = {
   // the participant's browser.
   submitApiUrl: "/api/qsort-submit",
 
+  // The consent page. Replace the ethics reference before fielding the
+  // study.
+  consent: {
+    titleBarText: "Research Consent",
+    text:
+      "You are invited to participate in a research study conducted by Dr. Khalid Khan at the American University of Ras Al Khaimah. Before you decide to participate, it is important that you understand why the research is being conducted and what it will involve. Please take the time to read the following information carefully. Feel free to contact the research team with any questions you may have.{{{br /}}}{{{br /}}}{{{b}}}Purpose of the Study{{{/b}}}{{{br /}}}This study examines how employees in the fintech sector think about sharing job tasks with artificial intelligence. The study is exploratory: it does not test a fixed hypothesis, but aims to identify the different viewpoints that exist on the subject. The findings will contribute to the research literature on technology, psychological contracts and organisational change.{{{br /}}}{{{br /}}}{{{b}}}Study Procedures{{{/b}}}{{{br /}}}If you agree to participate, you will be asked to sort a set of 60 statements according to your own perspective, from 'most like my view' to 'least like my view'. You will first make a rough preliminary sort, then refine it, and finally place each statement in a column. After the sort there is an optional short questionnaire about your role and experience with AI. The study will take approximately 20 minutes.{{{br /}}}{{{br /}}}{{{b}}}Benefits{{{/b}}}{{{br /}}}There are no direct benefits to you for participating. The information gathered may help employers and researchers understand employee concerns about AI, and may contribute to the development of responsible approaches to introducing AI at work.{{{br /}}}{{{br /}}}{{{b}}}Confidentiality and Anonymity{{{/b}}}{{{br /}}}Your responses to the sorting task are anonymous. The only identifier linked to your responses is the participant code you enter at the start, which you choose yourself and which is not linked to your name or employer. The optional questionnaire is collected separately from your sorting results and cannot be linked to them. Data is stored on a secure, access-controlled server and reported only in aggregate.{{{br /}}}{{{br /}}}{{{b}}}Voluntary Participation{{{/b}}}{{{br /}}}Your participation in this study is entirely voluntary. You are free to decline to participate, or to withdraw at any time without penalty or loss of benefits to which you are otherwise entitled. If you decide to withdraw, close the webpage and any data collected up to that point will not be used.{{{br /}}}{{{br /}}}{{{b}}}Data Use{{{/b}}}{{{br /}}}Data collected through this study will be used for academic research purposes, presented in conference papers and academic publications, and may be shared with other researchers for replication and further analysis in anonymised form.{{{br /}}}{{{br /}}}{{{b}}}Ethics Approval{{{/b}}}{{{br /}}}This study has been reviewed and approved by the [name of the ethics committee] (reference number: [reference number]).{{{br /}}}{{{br /}}}{{{b}}}Contact Information{{{/b}}}{{{br /}}}If you have any questions about this study, or any concerns about the way it is being conducted, please contact Dr. Khalid Khan at khan@drkk.biz.",
+    helpModalHead: "Contact Information",
+    helpModalText:
+      "Thank you for participating in this research study. If you have any questions about the study, or wish to raise a concern, you can contact Dr. Khalid Khan by email at khan@drkk.biz.",
+  },
+
+  // Landing / welcome copy.
+  landingHead: "AI Task-Sharing in Fintech",
+  welcomeText:
+    "{{{h2}}}Employee Beliefs About AI Task-Sharing in Fintech.{{{/h2}}}{{{br/}}}{{{br/}}}{{{p}}}Thank you for helping with this research project{{{/p}}}{{{br/}}}{{{br/}}}{{{br/}}}",
+  mobileWelcomeText:
+    "{{{h2}}}Employee Beliefs About AI Task-Sharing in Fintech.{{{/h2}}}{{{br/}}}{{{br/}}}{{{p}}}Thank you for helping with this research project{{{/p}}}{{{br/}}}{{{br/}}}{{{br/}}}",
+  landingHelpModalText:
+    "Thank you for participating in this research study. Please click the &quot;{{{b}}}Continue{{{/b}}}&quot; button at the bottom right side of the screen to go to the next step.",
+
+  // Instructions shown above the presort and sort grids.
+  mobilePresortConditionsOfInstruction:
+    "Evaluate the Statements According to Your Own Perspective",
+  mobileSortConditionsOfInstruction:
+    "Rank the Statements According to Your Own Perspective",
+  mobileThinConditionsOfInstruction: "Refine Your Evaluations",
+
   // Literal string replacements applied to the base language.xml. The base
   // file ships with a hard-coded statement count and demo wording.
   languageReplacements: [

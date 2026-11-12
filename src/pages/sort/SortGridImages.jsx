@@ -60,8 +60,12 @@ const SortGridImages = (props) => {
     localStorage.getItem("columnStatements"),
   );
 
-  if (presortColumnStatements === null) {
-    presortColumnStatements = [];
+  if (
+    !presortColumnStatements ||
+    typeof presortColumnStatements !== "object" ||
+    !presortColumnStatements.vCols
+  ) {
+    presortColumnStatements = { vCols: {}, statementList: [] };
   }
 
   // LOCAL STATE
@@ -238,7 +242,7 @@ const SortGridImages = (props) => {
         minHeight={qSortPattern[index] * (+props.cardHeight + 8)}
         maxCards={qSortPattern[index]}
         columnId={columnId}
-        columnStatementsArray={columnStatements.vCols[columnId]}
+        columnStatementsArray={columnStatements.vCols[columnId] || []}
         forcedSorts={configObj.warnOverloadedColumn}
         columnWidth={props.columnWidth}
         cardHeight={+props.cardHeight}

@@ -280,6 +280,43 @@ languageXml = setLanguageItem(
   escapeXml(study.emailSubjectLine),
 );
 
+if (study.consent) {
+  languageXml = setLanguageItem(
+    languageXml,
+    "consentTitleBarText",
+    escapeXml(study.consent.titleBarText),
+  );
+  languageXml = setLanguageItem(
+    languageXml,
+    "consentText",
+    escapeXml(study.consent.text),
+  );
+  languageXml = setLanguageItem(
+    languageXml,
+    "consentHelpModalHead",
+    escapeXml(study.consent.helpModalHead),
+  );
+  languageXml = setLanguageItem(
+    languageXml,
+    "consentHelpModalText",
+    escapeXml(study.consent.helpModalText),
+  );
+}
+
+// Landing copy and the instructions shown above the grids.
+for (const key of [
+  "landingHead",
+  "welcomeText",
+  "mobileWelcomeText",
+  "landingHelpModalText",
+  "mobilePresortConditionsOfInstruction",
+  "mobileSortConditionsOfInstruction",
+  "mobileThinConditionsOfInstruction",
+]) {
+  if (study[key] === undefined) continue;
+  languageXml = setLanguageItem(languageXml, key, escapeXml(study[key]));
+}
+
 // The base language file ships with a hard-coded statement count.
 for (const { find, replace } of study.languageReplacements || []) {
   if (!languageXml.includes(find)) {

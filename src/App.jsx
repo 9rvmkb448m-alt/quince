@@ -123,6 +123,11 @@ function App() {
         setSurveyQuestionObjArray(surveyQuestionObjArray);
         setRequiredAnswersObj(requiredAnswersObj);
 
+        // Use the study title as the page title.
+        if (configObj.studyTitle) {
+          document.title = configObj.studyTitle;
+        }
+
         let imagesArray = [];
         if (configObj.useImages === true) {
           for (let i = 0; i < configObj.numImages; i++) {
