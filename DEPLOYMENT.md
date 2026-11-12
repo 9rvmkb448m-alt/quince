@@ -9,6 +9,7 @@ study. It is deployed as a static bundle inside the portfolio site at
 ```
 scripts/study.mjs             study definition - title, grid, questionnaire, wording
 scripts/statements.txt        the 60 statements, one per line
+scripts/statement-themes.json which statements belong to which theme
 scripts/base/language.xml     base UI language file (English)
 scripts/generate-settings.mjs writes public/settings/*.xml from the two files above
 public/settings/              GENERATED - do not hand edit
@@ -21,6 +22,35 @@ src/                          the Quince application
 ```bash
 node scripts/generate-settings.mjs public/settings
 ```
+
+The generator only rewrites a file when its content actually changed, so
+re-running it on an unchanged study leaves the working tree clean.
+
+### Themes
+
+Quince has no theme field: a participant's sort records which column each
+statement ended up in, and nothing about the theme it came from. The mapping
+from statement id to theme lives in `scripts/statement-themes.json`, which is
+what turns the column results back into themes for thematic analysis.
+
+The themes in the source document are contiguous blocks of six statements:
+
+| Theme | Statements |
+| --- | --- |
+| 1. Job Security and Replacement | 1-6 |
+| 2. Psychological Contract (Unwritten Expectations) | 7-12 |
+| 3. Task Identity and Professional Value | 13-18 |
+| 4. Trust and AI Capability | 19-24 |
+| 5. Control, Autonomy, and Oversight | 25-30 |
+| 6. Organizational Loyalty and Fairness | 31-36 |
+| 7. Opportunity vs. Threat (Freedom for Meaningful Work) | 37-42 |
+| 8. Accountability and Risk | 43-48 |
+| 9. Skill Relevance and Future-Proofing | 49-54 |
+| 10. Resistance vs. Acceptance | 55-60 |
+
+If `statements.txt` changes, `statement-themes.json` has to change with it.
+The generator checks that the map still covers exactly the statements that
+exist and fails loudly if it does not.
 
 ## Local development
 

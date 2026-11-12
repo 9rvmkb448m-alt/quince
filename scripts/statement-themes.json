@@ -1,0 +1,133 @@
+{
+  "_comment": [
+    "Theme membership for the 60 statements, keyed by the statement ids used",
+    "in statements.xml (1-60). Quince has no theme field: a participant's",
+    "sort results record which column each statement ended up in, and this",
+    "map is what turns those columns back into themes for thematic",
+    "analysis. The mapping is contiguous blocks of six because that is how",
+    "the themes were written in the source document.",
+    "If statements.txt changes, re-check this file."
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "name": "Theme 1: Job Security and Replacement",
+      "statementIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Theme 2: Psychological Contract (Unwritten Expectations)",
+      "statementIds": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Theme 3: Task Identity and Professional Value",
+      "statementIds": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Theme 4: Trust and AI Capability",
+      "statementIds": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Theme 5: Control, Autonomy, and Oversight",
+      "statementIds": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Theme 6: Organizational Loyalty and Fairness",
+      "statementIds": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Theme 7: Opportunity vs. Threat (Freedom for Meaningful Work)",
+      "statementIds": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Theme 8: Accountability and Risk",
+      "statementIds": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Theme 9: Skill Relevance and Future-Proofing",
+      "statementIds": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Theme 10: Resistance vs. Acceptance",
+      "statementIds": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    }
+  ]
+}

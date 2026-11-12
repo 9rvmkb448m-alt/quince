@@ -8,7 +8,13 @@
 // this directory onto the built Quince bundle, so it must contain exactly
 // config.xml, language.xml, map.xml and statements.xml.
 
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from "node:fs";
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  copyFileSync,
+  existsSync,
+} from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { study } from "./study.mjs";
@@ -46,6 +52,22 @@ if (statements.length !== gridTotal) {
 if (study.grid.columns.length !== study.grid.counts.length) {
   console.error("grid.columns and grid.counts must be the same length.");
   process.exit(1);
+}
+
+// Quince has no theme field, so theme membership is tracked separately in
+// statement-themes.json. Check it still lines up with the statements.
+const themesPath = join(here, "statement-themes.json");
+if (existsSync(themesPath)) {
+  const themeMap = JSON.parse(readFileSync(themesPath, "utf8"));
+  const covered = themeMap.themes.flatMap((t) => t.statementIds).sort((a, b) => a - b);
+  const expected = statements.map((_, i) => i + 1);
+
+  if (JSON.stringify(covered) !== JSON.stringify(expected)) {
+    console.error(
+      `statement-themes.json covers ${covered.length} statement ids but statements.txt has ${statements.length}. Update it.`,
+    );
+    process.exit(1);
+  }
 }
 
 const statementsXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -329,12 +351,34 @@ for (const { find, replace } of study.languageReplacements || []) {
 // ------------------------------------------------------------------- output
 
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "statements.xml"), statementsXml);
-writeFileSync(join(outDir, "map.xml"), mapXml);
-writeFileSync(join(outDir, "config.xml"), configXml);
-writeFileSync(join(outDir, "language.xml"), languageXml);
 
-console.log(`Wrote 4 settings files to ${outDir}`);
+// Only write a file when its content actually changed. The generated files
+// carry a creation timestamp, so a straight comparison would always report a
+// difference and make every build look like a change.
+const writeIfChanged = (name, content) => {
+  const target = join(outDir, name);
+  const stampLine = /^.*id="creationDate".*$/m;
+
+  if (existsSync(target)) {
+    const existing = readFileSync(target, "utf8");
+    const normalisedExisting = existing.replace(stampLine, "");
+    const normalisedNew = content.replace(stampLine, "");
+    if (normalisedExisting === normalisedNew) {
+      console.log(`  unchanged: ${name}`);
+      return;
+    }
+  }
+
+  writeFileSync(target, content);
+  console.log(`  wrote: ${name}`);
+};
+
+console.log("Wrote 4 settings files to " + outDir);
+writeIfChanged("statements.xml", statementsXml);
+writeIfChanged("map.xml", mapXml);
+writeIfChanged("config.xml", configXml);
+writeIfChanged("language.xml", languageXml);
+
 console.log(`  statements: ${statements.length}`);
 console.log(
   `  grid: ${study.grid.columns.length} columns, ${gridTotal} cards (${study.grid.columns[0]}..${study.grid.columns.at(-1)})`,
