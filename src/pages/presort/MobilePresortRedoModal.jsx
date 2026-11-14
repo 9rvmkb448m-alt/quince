@@ -56,6 +56,8 @@ const MobilePresortRedoModal = (props) => {
   const cancelButtonText = ReactHtmlParser(decodeHTML(langObj.mobileModalButtonCancel)) || "";
   const assignLeft = ReactHtmlParser(decodeHTML(langObj.mobilePresortAssignLeft)) || "";
   const assignRight = ReactHtmlParser(decodeHTML(langObj.mobilePresortAssignRight)) || "";
+  const assignNeutral =
+    ReactHtmlParser(decodeHTML(langObj.mobilePresortAssignNeutral)) || "";
 
   const onCloseModal = () => {
     setCharacteristics({ backgroundColor: "#e5e5e5", value: 0 });
@@ -174,6 +176,7 @@ const MobilePresortRedoModal = (props) => {
       />
       <ButtonRowLabel>
         <AssignDiv>{assignLeft}</AssignDiv>
+        <AssignDiv>{assignNeutral}</AssignDiv>
         <AssignDiv>{assignRight}</AssignDiv>
       </ButtonRowLabel>
       {MainButtonRow}

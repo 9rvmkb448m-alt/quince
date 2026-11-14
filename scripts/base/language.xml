@@ -79,6 +79,7 @@
         <item order= "8-4" id="mobilePresortCompletedLabel">Completed Evaluations</item>
         <item order= "8-5" id="mobilePresortAssignLeft">Different from My Perspective</item>
         <item order= "8-6" id="mobilePresortAssignRight">Similar to My Perspective</item>
+        <item order= "8-6b" id="mobilePresortAssignNeutral">No Strong Feelings</item>
         <item order= "8-7" id="mobilePresortRedoModalHead">Re-Evaluate Statement</item>
         <item order= "8-8" id="mobilePresortRedoModalConfirmButton">Confirm</item>
         <item order= "8-9" id="mobilePresortEvaluationsComplete">{{{div}}}{{{b}}}All Statements Evaluated.{{{/b}}} {{{br /}}}{{{br /}}}Please review the statements to confirm your evaluations. {{{br /}}}{{{br /}}}{{{div}}}</item>

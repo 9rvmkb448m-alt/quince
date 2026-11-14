@@ -106,6 +106,8 @@ const MobilePresortPage = () => {
     ReactHtmlParser(decodeHTML(langObj.mobilePresortAssignLeft)) || "";
   const assignRight =
     ReactHtmlParser(decodeHTML(langObj.mobilePresortAssignRight)) || "";
+  const assignNeutral =
+    ReactHtmlParser(decodeHTML(langObj.mobilePresortAssignNeutral)) || "";
   const mobilePresortProcessCompleteMessage =
     ReactHtmlParser(decodeHTML(langObj.mobilePresortProcessCompleteMessage)) ||
     "";
@@ -551,7 +553,10 @@ const MobilePresortPage = () => {
           />
           <ButtonRowLabel>
             <AssignDiv>{assignLeft}</AssignDiv>
-            <CountDiv>{`${statementCount} / ${totalStatements}`}</CountDiv>
+            <CenterDiv>
+              <CountDiv>{`${statementCount} / ${totalStatements}`}</CountDiv>
+              <AssignDiv>{assignNeutral}</AssignDiv>
+            </CenterDiv>
             <AssignDiv>{assignRight}</AssignDiv>
           </ButtonRowLabel>
           {MainButtonRow}
@@ -661,15 +666,23 @@ const AssignDiv = styled.div`
   width: 28vw;
 `;
 
+const CenterDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 28vw;
+  height: 7vh;
+`;
+
 const CountDiv = styled.div`
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  width: 28vw;
-  height: 7vh;
+  width: 100%;
   color: ${(props) => {
     return props.theme.mobileText;
   }};
