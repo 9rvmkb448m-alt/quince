@@ -141,7 +141,7 @@ export const study = {
       required: true,
       limited: true,
       limitLength: 100,
-      label: "1. How many years of work experience do you have in fintech?*",
+      label: "1. How many years of general industry experience do you have?*",
       note: "Enter a number of years.",
     },
     {
