@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 // import SubmitSuccessModal from "./SubmitSuccessModal";
 // import SubmitFailureModal from "./SubmitFailureModal";
@@ -8,7 +8,6 @@ import useSettingsStore from "../../globalState/useSettingsStore";
 import useStore from "../../globalState/useStore";
 import PromptUnload from "../../utilities/PromptUnload";
 import axios from "axios";
-import SubmitButtonEmail from "./SubmitButtonEmail";
 import getSubmitRequest from "../../utilities/getSubmitRequest";
 
 const getLangObj = (state) => state.langObj;
@@ -38,8 +37,6 @@ const SubmitResultsButtonBaserow = (props) => {
 
   const btnTransferText =
     ReactHtmlParser(decodeHTML(langObj.btnTransfer)) || "";
-
-  const [failureCount, setFailureCount] = useState(0);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -84,28 +81,15 @@ const SubmitResultsButtonBaserow = (props) => {
         console.log(error);
         clearTimeout(timeoutId);
 
-        // reset UI immediately so the button/warning reappear
+        // Keep the submission button and show the retry warning; participants
+        // should not be asked to download or email their own data.
         setTransmittingData(false);
         setCheckInternetConnection(true);
         setDisplayBelowButtonText(false);
-
-        // increment failure count right away (no need to delay this)
-        setFailureCount((failureCount) => failureCount + 1);
-        if (failureCount + 1 >= 2) {
-          console.log("Baserow submission failed twice, showing fallback");
-          props.setShowText(false);
-        }
       });
 
     console.log("submission processed");
   };
-
-  // on >= 2 failures, display the download / email fallback
-  useEffect(() => {
-    if (failureCount >= 2) {
-      setCheckInternetConnection(false);
-    }
-  }, [failureCount, setCheckInternetConnection]);
 
   return (
     <React.Fragment>
@@ -114,7 +98,7 @@ const SubmitResultsButtonBaserow = (props) => {
       {/* <SubmitFailureModal /> */}
       {transmittingData ? (
         <TransmittingSpin />
-      ) : failureCount < 2 ? (
+      ) : (
         <StyledSubmitDataButton
           type="button"
           tabIndex={0}
@@ -123,14 +107,9 @@ const SubmitResultsButtonBaserow = (props) => {
         >
           {btnTransferText}
         </StyledSubmitDataButton>
-      ) : null}
+      )}
       {checkInternetConnection && (
         <WarningDiv>{checkInternetMessage}</WarningDiv>
-      )}
-      {failureCount >= 2 && (
-        <DownloadEmailFallback>
-          <SubmitButtonEmail results={props.results} />
-        </DownloadEmailFallback>
       )}
     </React.Fragment>
   );
@@ -201,21 +180,6 @@ const WarningDiv = styled.div`
   background-color: #ffc067;
   padding: 5px;
   margin-bottom: 30px;
-  border-radius: 10px;
-  font-weight: bold;
-`;
-
-const DownloadEmailFallback = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70vw;
-  height: fit-content;
-  font-size: 0.8em;
-  text-align: center;
-  background-color: #ffc067;
-  margin-bottom: 30px;
-  padding: 5px;
   border-radius: 10px;
   font-weight: bold;
 `;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 // import SubmitSuccessModal from "./SubmitSuccessModal";
 // import SubmitFailureModal from "./SubmitFailureModal";
@@ -8,7 +8,6 @@ import useSettingsStore from "../../globalState/useSettingsStore";
 import useStore from "../../globalState/useStore";
 import PromptUnload from "../../utilities/PromptUnload";
 import axios from "axios";
-import MobileSubmitButtonEmail from "./MobileSubmitButtonEmail";
 import getSubmitRequest from "../../utilities/getSubmitRequest";
 
 const getLangObj = (state) => state.langObj;
@@ -39,13 +38,9 @@ const SubmitResultsButton = (props) => {
   const btnTransferText =
     ReactHtmlParser(decodeHTML(langObj.btnTransfer)) || "";
 
-  const [failureCount, setFailureCount] = useState(0);
-  // const [buttonDisabled, setButtonDisabled] = useState(false);
-
   // Track timers so we can clear them on unmount / re-trigger, instead of
   // letting them fire against a component that's no longer on screen.
   const connectionTimeoutRef = useRef(null);
-  const failureTimeoutRef = useRef(null);
 
   // Clean up any in-flight timers if the component unmounts before they fire.
   useEffect(() => {
@@ -53,17 +48,8 @@ const SubmitResultsButton = (props) => {
       if (connectionTimeoutRef.current) {
         clearTimeout(connectionTimeoutRef.current);
       }
-      if (failureTimeoutRef.current) {
-        clearTimeout(failureTimeoutRef.current);
-      }
     };
   }, []);
-
-  useEffect(() => {
-    if (failureCount > 1) {
-      setCheckInternetConnection(false);
-    }
-  }, [failureCount, setCheckInternetConnection]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -111,17 +97,11 @@ const SubmitResultsButton = (props) => {
         console.log(error);
         clearTimeout(timeoutId);
 
-        // reset UI immediately so the button/warning reappear
+        // Keep the submission button and show the retry warning; participants
+        // should not be asked to download or email their own data.
         setTransmittingData(false);
         setCheckInternetConnection(true);
         setDisplayBelowButtonText(false);
-
-        // increment failure count right away (no need to delay this)
-        setFailureCount((failureCount) => failureCount + 1);
-        if (failureCount + 1 >= 2) {
-          console.log("Baserow submission failed twice, showing fallback");
-          props.setShowText(false);
-        }
       });
   };
 
@@ -132,7 +112,7 @@ const SubmitResultsButton = (props) => {
       {/* <SubmitFailureModal /> */}
       {transmittingData ? (
         <TransmittingSpin />
-      ) : failureCount < 2 ? (
+      ) : (
         <StyledButton
           tabIndex="0"
           disabled={transmittingData}
@@ -140,14 +120,9 @@ const SubmitResultsButton = (props) => {
         >
           {btnTransferText}
         </StyledButton>
-      ) : null}
+      )}
       {checkInternetConnection && (
         <WarningDiv>{checkInternetMessage}</WarningDiv>
-      )}
-      {failureCount > 1 && (
-        <DownloadEmailFallback>
-          <MobileSubmitButtonEmail results={props.results} />
-        </DownloadEmailFallback>
       )}
     </React.Fragment>
   );
@@ -227,17 +202,3 @@ const WarningDiv = styled.div`
   font-weight: bold;
 `;
 
-const DownloadEmailFallback = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70vw;
-  height: fit-content;
-  font-size: 0.8em;
-  text-align: center;
-  background-color: #ffc067;
-  margin-bottom: 30px;
-  padding: 5px;
-  border-radius: 10px;
-  font-weight: bold;
-`;
